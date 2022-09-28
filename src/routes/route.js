@@ -71,12 +71,12 @@ router.post("/write-file-aws",async function (req,res){
     let files=req.files
     if(files && files.length>0){
     const uploadURL= await uploadFile(files[0])
-     res.status(201).send({msg:"file uploaded Sccesfully",data:uploadURL})
+   return  res.status(201).send({msg:"file uploaded Sccesfully",data:uploadURL})
     }else{
         res.status(400).send({message:"No file found"})
     }
     }catch(err){
-         res.status(500).send({message:err.message})
+     return  es.status(500).send({message:err.message})
     }
 })
 
